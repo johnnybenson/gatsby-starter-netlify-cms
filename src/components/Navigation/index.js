@@ -122,7 +122,7 @@ const DesktopNav = ({ links, release }) => {
 };
 
 const Navigation = ({ release, ...data }) => {
-  const { hide, links } = data;
+  const { hide, links = [] } = data;
   const showNav = !hide && !!links.length;
 
   return (

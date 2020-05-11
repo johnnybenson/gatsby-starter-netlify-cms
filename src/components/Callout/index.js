@@ -49,7 +49,7 @@ const Callout = ({ release, ...data }) => {
     >
       <div
         className={cx('callout-content', styles.Content)}
-        dangerouslySetInnerHTML={{ __html: data.html || '' }}
+        dangerouslySetInnerHTML={{ __html: data.body || '' }}
       />
     </div>
   );

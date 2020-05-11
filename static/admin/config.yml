@@ -15,11 +15,11 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/pages/index.md"
+      - file: "src/pages/landing.md"
         label: "Landing Page"
-        name: "index"
+        name: "landing"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "landing-page"}
           - {
               label: Header,
               name: header,
@@ -60,7 +60,7 @@ collections:
               label: Conversion,
               name: conversion,
               widget: object,
-              fields: [{label: Hide, name: hide, widget: boolean, required: false},  {label: "Use Custom Embed", name: useCustom, widget: boolean, required: false}, {label: "Heading", name: heading, widget: string}, {label: "Label: First Name", name: first, widget: string}, {label: "Label: Last Name", name: last, widget: string}, {label: "Label: Email", name: email, widget: string}, {label: "Label: Submit", name: submit, widget: string}]
+              fields: [{label: Hide, name: hide, widget: boolean, required: false},  {label: "Use Custom Embed", name: useCustom, widget: boolean, required: false}, {label: "Heading", name: heading, widget: string}, {label: "Label: First Name", name: first, widget: string}, {label: "Label: Last Name", name: last, widget: string}, {label: "Label: Email", name: email, widget: string}, {label: "Label: Submit", name: submit, widget: string}, {label: "Embed Code", name: "embed", widget: "code"}]
             }
           - {
               label: Footer,

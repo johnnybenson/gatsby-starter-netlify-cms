@@ -14,7 +14,7 @@ import styles from './styles.module.scss';
  * @param {string} html
  * @returns {string|null} "https://netlify.us19.list-manage.com/subscribe/post?u=1f28b6be6f07eec26646ad787&amp;id=4637b5fba8"
  */
-const getMailchimpAction = (html) => {
+const getMailchimpAction = (html = 'action=') => {
   let chunk = html.split('action="')[1];
   return (chunk && chunk.split('"')[0]) || null;
 };
@@ -24,7 +24,7 @@ const getMailchimpAction = (html) => {
  * @param {string} html
  * @returns {string|null} b_1f28b6be6f07eec26646ad787_4637b5fba8
  */
-const getMailchimpHoneypot = (html) => {
+const getMailchimpHoneypot = (html = 'tabindex=-1') => {
   let chunk = html.split('tabindex="-1"')[0];
   let chunk2 = chunk.split('name=');
 
@@ -56,12 +56,12 @@ FormField.propTypes = {
 };
 
 const Conversion = ({ release, ...data }) => {
-  const { hide, labels, heading, html } = data;
+  const { hide, heading, embed } = data;
 
   // HACK:
   // Extract the Action & Honeypot from Mailchimp Embed Code
-  const action = getMailchimpAction(html);
-  const honeypot = getMailchimpHoneypot(html);
+  const action = getMailchimpAction(embed);
+  const honeypot = getMailchimpHoneypot(embed);
 
   const [first, setFirst] = React.useState('');
   const [last, setLast] = React.useState('');
@@ -114,7 +114,7 @@ const Conversion = ({ release, ...data }) => {
               aria-hidden="true"
             />
             <FormField
-              label={labels.first || 'Enter your first name'}
+              label={data.first || 'Enter your first name'}
               onChange={(e) => {
                 setHasIntent(true);
                 setFirst(e.target.value);
@@ -126,7 +126,7 @@ const Conversion = ({ release, ...data }) => {
               required
             />
             <FormField
-              label={labels.last || 'Enter your last name'}
+              label={data.last || 'Enter your last name'}
               onChange={(e) => {
                 setHasIntent(true);
                 setLast(e.target.value);
@@ -137,7 +137,7 @@ const Conversion = ({ release, ...data }) => {
               required
             />
             <FormField
-              label={labels.email || 'Enter your email'}
+              label={data.email || 'Enter your email'}
               onChange={(e) => {
                 setHasIntent(true);
                 setEmail(e.target.value);

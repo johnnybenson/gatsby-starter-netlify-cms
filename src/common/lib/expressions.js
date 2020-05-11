@@ -26,11 +26,11 @@ export const isExternalUrl = (url) =>
  * @param {String} url
  * @returns {Boolean}
  */
-export const isImageAsset = (url) => /^images\//.test(url);
+export const isImageAsset = (url) => /^\/images|^images\//.test(url);
 
 /**
  * Test if URL is for an video asset
  * @param {String} url
  * @returns {Boolean}
  */
-export const isVideoAsset = (url) => /^videos\//.test(url);
+export const isVideoAsset = (url) => /^\/videos|^videos\//.test(url);

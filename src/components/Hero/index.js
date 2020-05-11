@@ -63,8 +63,6 @@ const HeroContainer = ({ background, fullScreen, children }) => {
 const Hero = ({ release, ...data }) => {
   const { hide, fullScreen, html } = data;
 
-  debugger;
-
   if (hide) {
     return null;
   }

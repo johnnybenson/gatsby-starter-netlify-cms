@@ -9,16 +9,16 @@ import Callout from '../components/Callout';
 import Conversion from '../components/Conversion';
 import Footer from '../components/Footer';
 
-export const IndexPageTemplate = (props) => (
+export const IndexPageTemplate = ({ ...data }) => (
   <>
-    <Header {...props.header} />
-    <Hero {...props.hero} />
-    <Callout name="Callout1" {...props.callout1} />
-    <Callout name="Callout2" {...props.callout2} />
-    <Callout name="Callout3" {...props.callout3} />
-    <Callout name="Callout4" {...props.callout4} />
-    <Conversion {...props.conversion} />
-    <Footer {...props.footer} />
+    <Header {...data.header} />
+    <Hero {...data.hero} />
+    <Callout name="Callout1" {...data.callout1} />
+    <Callout name="Callout2" {...data.callout2} />
+    <Callout name="Callout3" {...data.callout3} />
+    <Callout name="Callout4" {...data.callout4} />
+    <Conversion {...data.conversion} />
+    <Footer {...data.footer} />
   </>
 );
 
@@ -67,7 +67,7 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+    markdownRemark(frontmatter: { templateKey: { eq: "landing-page" } }) {
       frontmatter {
         header {
           hide

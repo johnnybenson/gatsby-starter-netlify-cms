@@ -26,7 +26,7 @@ const ConversionSuccess = ({ release, ...data }) => {
     >
       <div
         className={cx('success--content', styles.Content)}
-        dangerouslySetInnerHTML={{ __html: data.html || '' }}
+        dangerouslySetInnerHTML={{ __html: data.body || '' }}
       />
     </div>
   );

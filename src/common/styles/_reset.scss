@@ -1,0 +1,175 @@
+@import './mixins';
+@import './variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  // [Experimental]: Responsive Type
+  // https://css-tricks.com/simplified-fluid-typography/
+  // @include responsive-type();
+  height: 100%;
+  scroll-behavior: var(--page--scroll-behavior);
+}
+
+body {
+  overscroll-behavior: none;
+  background: var(--page--background);
+}
+
+// Full Height Layout to support Sticky Footer
+body,
+:global(body #___gatsby),
+:global(body #gatsby-focus-wrapper),
+:global(body .layout) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  flex: 1 0 auto;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font-size: var(--theme--font--root--size);
+  font-family: var(--theme--font--root--family);
+  font-weight: var(--theme--font--root--weight);
+  line-height: var(--theme--font--root--line-height);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-family: var(--theme--font--heading--family);
+  font-weight: var(--theme--font--root--weight);
+}
+
+h1,
+h2 {
+  font-size: var(--theme--font--size-xl);
+}
+
+h3 {
+  font-size: var(--theme--font--size-l);
+}
+
+h4 {
+  font-size: var(--theme--font--size-m);
+}
+
+h5,
+h6 {
+  font-size: var(--theme--font--size);
+}
+
+em,
+strong {
+  font-weight: inherit;
+  font-style: inherit;
+}
+
+p {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+  // Hide empty <p></p> Tags because they add vertical space
+  &:empty {
+    display: none;
+  }
+}
+
+blockquote,
+q {
+  font-family: var(--theme--font--heading--family);
+  font-style: italic;
+  quotes: '“' '”' '‘' '’';
+}
+
+img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+}
+
+// ==================================================================
+// Links
+// ==================================================================
+
+a {
+  color: var(--page--link--color);
+
+  &:hover,
+  &:focus {
+    color: var(--page--link-hover--color);
+  }
+
+  &:active {
+    color: var(--page--link-active--color);
+  }
+}
+
+// ==================================================================
+// Lists
+// ==================================================================
+ul,
+ol {
+  list-style-position: inside;
+}
+
+// ==================================================================
+// Forms
+// ==================================================================
+
+input,
+select,
+button,
+textarea {
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  box-shadow: var(--theme--shadow--none);
+  transition: box-shadow 200ms ease-out;
+
+  &:focus {
+    box-shadow: var(--theme--shadow--base);
+  }
+}
+
+button {
+  // Hack: Don't let the text take up vertical height
+  line-height: 0;
+  position: relative;
+  cursor: pointer;
+  @include after-glass;
+  &:hover {
+    box-shadow: var(--theme--shadow--base);
+    &:after {
+      background: var(--theme--color--transparent-light);
+    }
+  }
+  &:active,
+  &:active:hover {
+    box-shadow: var(--theme--shadow--inset);
+    &:after {
+      background: var(--theme--color--transparent-dark);
+    }
+  }
+}
+
+// Accessibility! Disables Transitions using this var()
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --theme--animation-timing: 0ms;
+  }
+}

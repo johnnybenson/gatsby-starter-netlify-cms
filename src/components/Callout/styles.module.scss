@@ -1,0 +1,144 @@
+@import '../../common/styles';
+
+.Callout {
+  @include block;
+
+  &.hasBg {
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.Content {
+  @include block-content;
+  @include block-content-columns;
+
+  ul {
+    @include list-todo;
+    font-size: var(--callout--list--font-size);
+  }
+
+  em {
+    color: var(--callout--accent-color);
+  }
+
+  :global(.callout-cta) {
+    display: inline-block;
+    text-align: center;
+    background: var(--callout--cta--background);
+    color: var(--callout--cta--color);
+    padding: var(--callout--cta--padding);
+    border-radius: var(--callout--cta--radius);
+  }
+}
+
+.CalloutLeft {
+  background: var(--callout--left--background);
+  color: var(--callout--left--color);
+  .Content {
+    @media ($mq-desktop) {
+      section:nth-child(1) {
+        order: 2;
+        padding: 0;
+        padding-left: var(--callout--size);
+      }
+      section:nth-child(2) {
+        order: 1;
+        padding: 0;
+        padding-right: var(--callout--size);
+      }
+    }
+  }
+}
+
+.CalloutRight {
+  background: var(--callout--right--background);
+  color: var(--callout--right--color);
+}
+
+.CalloutCenter {
+  text-align: center;
+  background: var(--callout--center--background);
+  color: var(--callout--center--color);
+}
+
+.CalloutBigNumbers {
+  background: var(--callout--big-numbers--background);
+  color: var(--callout--big-numbers--color);
+
+  .Content {
+    flex-direction: column;
+
+    & > section {
+      @include block-content-columns;
+      flex-direction: row;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-bottom: var(--callout--size);
+    }
+
+    text-align: center;
+  }
+
+  h3 {
+    margin: auto;
+    text-align: center;
+    line-height: calc(2 * var(--theme--font--size-l));
+    font-size: calc(2 * var(--theme--font--size-m));
+    width: calc(2 * var(--theme--font--size-l));
+    height: calc(2 * var(--theme--font--size-l));
+    border-radius: calc(2 * var(--theme--font--size-l));
+    background: var(--callout--number-bg);
+    color: var(--callout--number-text);
+  }
+
+  p {
+    padding-top: var(--callout--size);
+  }
+}
+
+.CalloutFull {
+  background: var(--callout--full-bleed--background);
+  color: var(--callout--full-bleed--color);
+
+  @media ($mq-desktop) {
+    padding: 0;
+  }
+
+  @media ($mq-mobile) {
+    padding-bottom: 0;
+    .Content {
+      section {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+.CalloutFourUp {
+  .Content {
+    & > :not(section) {
+      text-align: center;
+    }
+    & > section {
+      section {
+        padding: calc(2 * var(--callout--cta--padding)) 0;
+      }
+    }
+
+    @media ($mq-desktop) {
+      flex-wrap: wrap;
+      & > :not(section) {
+        width: 100%;
+      }
+      & > section {
+        flex: 1 1 50%;
+        width: 50%;
+      }
+    }
+  }
+}

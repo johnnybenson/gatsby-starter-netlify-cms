@@ -20,11 +20,51 @@ collections:
         name: "index"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Subheading, name: subheading, widget: string}
-          - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}]}
-          - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
+          - {
+              label: Header,
+              name: header,
+              widget: object,
+              fields: [{label: Hide, name: hide, widget: boolean, required: false}, { label: Logo, name: logo, widget: object, fields: [{label: Hide, name: hide, widget: boolean, required: false}, {label: Image, name: image, widget: image}] }]
+            }
+          - {
+              label: Hero,
+              name: hero,
+              widget: object,
+              fields: [{label: Hide, name: hide, widget: boolean, required: false},  {label: Fullscreen, name: fullscreen, widget: boolean, required: false}, {label: "Call to Action", name: ctaLabel, widget: string}, {label: "Call to Action URL", name: ctaUrl, widget: string}, {label: Background, name: background, widget: image}, {label: "Content", name: "body", widget: "markdown"}]
+            }
+          - {
+              label: Callout One,
+              name: callout1,
+              widget: object,
+              fields: [{label: Hide, name: hide, widget: boolean, required: false},  {label: Format, name: format, widget: select, default: "left-aligned", options: ["left-aligned", "right-aligned", "center-aligned", "big-numbers", "full-bleed", "four-up"]}, {label: "Content", name: "body", widget: "markdown"}]
+            }
+          - {
+              label: Callout Two,
+              name: callout2,
+              widget: object,
+              fields: [{label: Hide, name: hide, widget: boolean, required: false},  {label: Format, name: format, widget: select, default: "left-aligned", options: ["left-aligned", "right-aligned", "center-aligned", "big-numbers", "full-bleed", "four-up"]}, {label: "Content", name: "body", widget: "markdown"}]
+            }
+          - {
+              label: Callout Three,
+              name: callout3,
+              widget: object,
+              fields: [{label: Hide, name: hide, widget: boolean, required: false},  {label: Format, name: format, widget: select, default: "left-aligned", options: ["left-aligned", "right-aligned", "center-aligned", "big-numbers", "full-bleed", "four-up"]}, {label: "Content", name: "body", widget: "markdown"}]
+            }
+          - {
+              label: Callout Four,
+              name: callout4,
+              widget: object,
+              fields: [{label: Hide, name: hide, widget: boolean, required: false},  {label: Format, name: format, widget: select, default: "left-aligned", options: ["left-aligned", "right-aligned", "center-aligned", "big-numbers", "full-bleed", "four-up"]}, {label: "Content", name: "body", widget: "markdown"}]
+            }
+          - {
+              label: Conversion,
+              name: conversion,
+              widget: object,
+              fields: [{label: Hide, name: hide, widget: boolean, required: false},  {label: "Use Custom Embed", name: useCustom, widget: boolean, required: false}, {label: "Heading", name: heading, widget: string}, {label: "Label: First Name", name: first, widget: string}, {label: "Label: Last Name", name: last, widget: string}, {label: "Label: Email", name: email, widget: string}, {label: "Label: Submit", name: submit, widget: string}]
+            }
+          - {
+              label: Footer,
+              name: footer,
+              widget: object,
+              fields: [{label: Hide, name: hide, widget: boolean, required: false}, { label: Logo, name: logo, widget: object, fields: [{label: Hide, name: hide, widget: boolean, required: false}, {label: Image, name: image, widget: image}] }, {label: "Content", name: "body", widget: "markdown"}]
+            }

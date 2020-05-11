@@ -1,0 +1,11 @@
+@import '../../common/styles';
+
+.Header {
+  @include block;
+  display: flex;
+  text-align: center;
+}
+
+.HeaderH1 {
+  margin: auto auto auto 0;
+}

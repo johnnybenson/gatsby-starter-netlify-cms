@@ -1,0 +1,79 @@
+@import '../../common/styles';
+
+.Form {
+  @include block;
+  background: var(--conversion--form--background);
+  color: var(--conversion--form--color);
+  padding: calc(2 * var(--conversion--form--padding));
+
+  input,
+  select,
+  button,
+  textarea {
+    border-radius: calc(2 * var(--conversion--form--padding));
+    padding: calc(2 * var(--conversion--form--padding));
+  }
+}
+
+.CustomForm {
+  @include block;
+  background: var(--conversion--form--background);
+}
+
+.Content {
+  @include block-content;
+}
+
+.ConversionHeading {
+  margin: 0 auto calc(2 * var(--conversion--form--padding));
+  text-align: center;
+  color: var(--conversion--form-label--color);
+}
+
+.Label {
+  display: block;
+  position: relative;
+  padding: calc(2 * var(--conversion--form--padding));
+  &:not(:last-child) {
+    margin-bottom: var(--conversion--form--padding);
+  }
+}
+
+.Input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  &:focus + .LabelText,
+  &:valid + .LabelText,
+  &:not([value='']) + .LabelText {
+    display: none;
+  }
+  &[value='']:focus + .LabelText {
+    display: block;
+  }
+}
+
+.LabelText {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  padding: 0 calc(2 * var(--conversion--form--padding));
+  color: var(--conversion--form-label--color);
+}
+
+.LabelRequired {
+  display: none;
+}
+
+.Submit {
+  display: block;
+  margin: auto;
+  color: var(--conversion--form-submit--color);
+  background: var(--conversion--form-submit--background);
+  @media ($mq-desktop) {
+    max-width: calc(0.5 * var(--block--max-width));
+  }
+}

@@ -1,0 +1,65 @@
+@import '../../common/styles';
+
+.Hero {
+  @include block;
+  @include before-glass;
+  position: relative;
+  width: 100vw;
+  height: 66vh;
+  color: var(--hero--color);
+  background: var(--hero--background) 50% 50% no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1,
+  h2 {
+    font-size: var(--hero--heading-size--mobile);
+    @media ($mq-desktop) {
+      font-size: var(--hero--heading-size);
+    }
+  }
+
+  p {
+    line-height: 1.2;
+    @media ($mq-desktop) {
+      font-size: var(--hero--text-size);
+    }
+    @media ($mq-mobile) {
+      font-size: var(--hero--text-size--mobile);
+    }
+  }
+
+  &:before {
+    background-color: var(--hero--overlay-color);
+  }
+
+  &.HeroFullScreen {
+    height: 100vh;
+  }
+
+  &.HeroBgImage {
+  }
+
+  &.HeroBgVideo {
+  }
+}
+
+.HeroVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Content {
+  @include block-content;
+
+  text-align: center;
+}

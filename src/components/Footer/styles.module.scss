@@ -1,0 +1,33 @@
+@import '../../common/styles';
+
+.Footer {
+  @include block;
+  padding: calc(2 * var(--page--footer--padding));
+
+  width: 100vw;
+  margin: auto auto 0 0;
+  background: var(--page--footer--background);
+  @media ($mq-desktop) {
+    display: flex;
+  }
+
+  & > :not(:first-child) {
+    flex: 1;
+  }
+}
+
+.Logo {
+  margin-top: var(--theme--unit--small);
+  padding-right: var(--theme--unit--medium);
+}
+
+.Content {
+  @include block-content;
+  @include block-content-columns;
+
+  ul {
+    @media ($mq-desktop) {
+      text-align: right;
+    }
+  }
+}

@@ -8,7 +8,7 @@ import Logo from '../Logo';
 import styles from './styles.module.scss';
 
 const Footer = ({ release, ...data }) => {
-  const { hide, html } = data;
+  const { hide, body } = data;
   if (hide) {
     return null;
   }
@@ -18,7 +18,7 @@ const Footer = ({ release, ...data }) => {
       <Logo className={cx('footer--logo', styles.Logo)} />
       <div
         className={cx('footer--content', styles.Content)}
-        dangerouslySetInnerHTML={{ __html: html || '' }}
+        dangerouslySetInnerHTML={{ __html: body || '' }}
       />
     </footer>
   );

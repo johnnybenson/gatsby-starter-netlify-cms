@@ -61,7 +61,7 @@ const HeroContainer = ({ background, fullScreen, children }) => {
 };
 
 const Hero = ({ release, ...data }) => {
-  const { hide, fullScreen, html } = data;
+  const { hide, fullScreen, body } = data;
 
   if (hide) {
     return null;
@@ -74,7 +74,7 @@ const Hero = ({ release, ...data }) => {
     >
       <div
         className={cx('hero--content', styles.Content)}
-        dangerouslySetInnerHTML={{ __html: html }}
+        dangerouslySetInnerHTML={{ __html: body }}
       />
       <CTA label={data.ctaLabel} url={data.ctaUrl} />
     </HeroContainer>

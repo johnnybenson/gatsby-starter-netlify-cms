@@ -1,7 +1,9 @@
 ---
 header:
   logo:
-    image: /images/logo.svg
+    image: /images/art-2.svg
+    hide: false
+  hide: false
 hero:
   body: >
     # A new kind of interactive learning experience
@@ -11,6 +13,7 @@ hero:
   ctaLabel: Sign Up
   ctaUrl: "#get-started"
   background: /images/hero.jpg
+  hide: true
 callout1:
   body: |
     
@@ -29,7 +32,7 @@ callout1:
     `embed: https://www.youtube.com/watch?v=k5veb0wZas0`
 
     </section>
-  format: left-aligned
+  format: big-numbers
 callout2:
   body: >+
     
